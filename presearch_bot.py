@@ -44,7 +44,7 @@ for i in range(32):
  
 
   r = requests.Session()
-  content = r.get("https://www.presearch.org").content
+  content = r.get("https://presearch.com").content
 
   soup = BeautifulSoup(content, 'html.parser')
   token = soup.find("input", {
@@ -56,16 +56,16 @@ for i in range(32):
   'Content-Type': 'application/x-www-form-urlencoded'
 }
 
-  login = r.post("https://www.presearch.org/api/auth/login", data = payload, headers = headers)
+  login = r.post("https://presearch.com/api/auth/login", data = payload, headers = headers)
 
   for x in range(1):
     words = random.choice(["apple", "life", "hacker", "facebook", "instagram", "twitter", "youtube", "money", "banana", "lemon", "rice", "chiken", "home", "street", "food", "winter", "pubg", "bot", "love", "freelancing", "presearch", "token", "abuse", "hindi", "translator", "pubg", "horse", "dollar", "india", "china", "earning", "summer", "football", "ronaldo", "messi", "cricket", "python", "java", "perl", "ruby", "free", "swift", "table", "chair", "lamp", "pen", "book", "bed", "donkey", "cow", "cat", "pencil", "class", "school", "oxford", "university", "abs", "gym", "bird", "billioner"])
     payload = "term={}&provider_id=98&_token={}".format(words, token)
-    r.post("https://www.presearch.org/search", data = payload, headers = headers)
+    r.post("https://presearch.com/search", data = payload, headers = headers)
     print((i+1),(index+1),"Term:{} Search done!".format(words),xmail)
    # print(session.get("http://httpbin.org/ip").text)
     time.sleep(1)
-  r = r.get("https://www.presearch.org/")
+  r = r.get("https://presearch.com/")
   soup = BeautifulSoup(r.content, 'html.parser')
   balance = soup.find("span", {
   "class": "number ajax balance"
